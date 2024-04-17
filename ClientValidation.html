@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>MyCamu</title>
+    </head>
+    <body id ="body">
+        <h1>MuCamu</h1>
+        <h2>Login</h2>
+        <form>Uname
+            <input type = "text" pleaceholder="uname"  id = "uname" name="uname"required /><br>
+            passowrd
+            <input type = "password" pleaceholder="password" id = "password" name="password" required/><br>
+            
+            REpassowrd
+            <input type = "password" pleaceholder="repassword" id = "repassword" name="repassword" required/><br>
+            email
+            <input type = "email" pleaceholder="email" id = "email" name="email" pattern = ^[a-zA-Z0-9._%+-]+@[a-zA-Z]+/.[a-zA-Z]$/><br>
+            mobile
+            <input type ="tel" pleaceholder="phone" id = "phone" name="phone"/><br>
+            Age
+            <input type = "number" pleaceholder="number" id = "number" name="number" min=18 max = 100/><br>
+            Date
+            <input type = "date" pleaceholder="date" id = "date" max="2024-04-16" min ="2024-04-03"><br> 
+            <input type="checkbox" id="agree" name="agree" required>Agree Terms And Conditions<br>
+            File
+            <input type="file" id="file" name="file" accept=".pdf,.doc,.docx"><br>
+
+            <input type = "button" pleaceholder="Submit" id = "submit" onclick="validate()"/>
+            <button type="submit" id="submit" name="submit">Save</button>
+            <div id="result"></div>
+
+        </form>
+        <script>
+            function validate(){
+                var password = document.getElementById("password").value; 
+                var repassword = document.getElementById("repassword").value;
+                var body = document.getElementById("body");
+                //body.style.backgroundColor ="red";
+                if(password!==repassword){
+                    document.getElementById("password").setCustomValidity("password mismatch");
+                    document.getElementById("repassword").value = password;
+                }else{
+                    document.getElementById("password").setCustomValidity("");
+                }
+            }
+            var submit = document.getElementById("submit");
+            var body = document.getElementById("body");
+            var result = document.getElementById("result");
+            var count = 0;
+            submit.addEventListener("click", function(){
+                count++;
+                if(count%2==0){
+                    body.style.backgroundColor = "red";
+                    result.innerHTML += count;
+
+                }else{
+                    body.style.backgroundColor = "blue";
+                }
+                
+            });
+            body.addEventListener("scroll", function(){
+                count++;
+                if(count%2==0){
+                    body.style.backgroundColor = "red";
+                    result.innerHTML += count;
+
+                }else{
+                    body.style.backgroundColor = "blue";
+                }
+                
+            });
+
+        </script>
+    </body>
+</html>
